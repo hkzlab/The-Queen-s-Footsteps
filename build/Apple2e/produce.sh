@@ -7,7 +7,9 @@
 
 # Assemble the disk image
 cp dsk/prodos.po ./queens_en.po
-java -jar $acjarfile -as ./queens_en.po QUEENS.SYSTEM < queens_en.bin
+java -jar $acjarfile -as ./queens_en.po STARTUP < splash.bin
+java -jar $acjarfile -as ./queens_en.po GAME < queens_en.bin
+java -jar $acjarfile -p ./queens_en.po SPLASH.HGR 0 < dsk/splash.hgr
 java -jar $acjarfile -p ./queens_en.po EM.DRV 0 < dsk/a2e.auxmem.emd
 java -jar $acjarfile -p ./queens_en.po TEXT.DAT 0 < text_en.dat
 
